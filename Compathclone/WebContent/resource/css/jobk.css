@@ -1,0 +1,181 @@
+@charset "utf-8";
+
+.skip, .blind {
+   position: absolute !important;
+   overflow: hidden;
+   width: 1px;
+   height: 1px;
+   clip: rect(0px, 0px, 0px, 0px);
+   margin: -1px;
+}
+
+.secReadSummary .sumBtn {
+   clear: both;
+   margin: 22px 0;
+   text-align: center;
+}
+
+/* Title */
+.hd_2 {
+   font-size: 17px;
+   font-weight: bold;
+   color: #000;
+   padding-bottom: 10px;
+}
+
+.hd_3 {
+   font-size: 15px;
+   color: #000;
+   padding-bottom: 5px 0 20px 0;
+}
+
+.secReadSummary {
+   border-top: 2px solid #4a5470;
+}
+
+.readSumWrap {
+   border: 1px solid #dce1eb;
+   border-top: 0;
+   background: url("/content/images/ver_1/jobs/read/bg_job_sum.png")
+      repeat-y left bottom;
+}
+
+.artReadJobSum {
+   position: relative;
+   float: left;
+   width: 100%;
+   padding: 20px;
+}
+
+.artReadJobSum .sumTit .hd_3 {
+   font-size: 27px;
+   color: #000;
+   width: 75%;
+   padding: 5px 0 20px 0;
+   border-bottom: 1px solid #dde2eb;
+   letter-spacing: -2px;
+   word-break: break-all;
+}
+
+.artReadJobSum .sumTit .hd_3 .coName {
+   display: block;
+   font-size: 18px;
+   color: #333;
+   margin-bottom: 5px;
+   letter-spacing: -1px;
+}
+
+.artReadJobSum .tbRow {
+   padding-top: 18px;
+}
+
+.artReadJobSum .tbCol {
+   float: left;
+   width: 35%;
+   margin: 0 20px 0 0;
+   /* border-right: 1px solid #cacaca; */
+}
+
+.artReadJobSum .tbCol:first-child {
+   width: 40%;
+   margin: 0;
+}
+
+.artReadJobSum .hd_4 {
+   font-size: 14px;
+   color: #333;
+   font-weight: bold;
+   letter-spacing: -1px;
+   padding: 0px;
+   margin: 0px;
+}
+
+.artReadJobSum .tbList {
+   margin-top: 7px;
+   padding: 0;
+   margin: 0;
+}
+
+.artReadJobSum .tbList>dt, .artReadJobSum .tbList>dd {
+   display: inline-block;
+   font-size: 13px;
+   margin: 4px 0 5px 0;
+}
+
+.artReadJobSum .tbList>dt {
+   color: #999;
+   width: 65px;
+   vertical-align: top;
+}
+
+.artReadJobSum .tbList>dd {
+   color: #333;
+   width: 80%;
+}
+
+.artReadJobSum .tbList>dd a {
+   color: #333;
+}
+
+.artReadJobSum .tbList>dd a:hover {
+   color: #39f;
+}
+
+.artReadJobSum .tbList>dd em {
+   font-size: 11px;
+   color: #999;
+}
+
+.artReadJobSum .tbCol:first-child .tbList>dt {
+   width: 10%;
+}
+
+.artReadJobSum .tbCol:first-child .tbList>dd {
+   width: 80%;
+}
+
+.artReadJobSum .col_1 {
+   color: #39f;
+   font-weight: normal;
+}
+
+.artReadJobSum .tbCoInfo {
+   width: 188px;
+   margin: 0 0 0 20px;
+}
+
+.artReadJobSum .tbCoInfo .tbLogo {
+   position: absolute;
+   top: 0;
+   right: 0;
+   display: table;
+   width: 25%;
+   height: 111px;
+   background: #fff;
+   text-align: center;
+   border-left: 1px solid #dde2eb;
+}
+
+.artReadJobSum .tbCoInfo .logo {
+   display: table-cell;
+   vertical-align: middle;
+}
+
+.artReadJobSum .tbCoInfo .tbList dt {
+   width: 65px;
+}
+
+.artReadJobSum .tbCoInfo .tbList dd {
+   width: 115px;
+   word-break: break-all;
+}
+
+.artReadJobSum .tbCoInfo .coBtn {
+   margin-top: 20px;
+   text-align: center;
+}
+
+.artReadJobSum .tbCoInfo .coBtn .girBtnFavOn strong {
+   color: #f60;
+   font-weight: normal;
+}

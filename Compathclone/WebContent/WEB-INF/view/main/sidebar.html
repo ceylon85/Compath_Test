@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+
+<title>스크랩북 게시판 com:path</title>
+
+<!-- 부트스트랩 -->
+<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"
+	type="text/css" />
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<!-- Bootstrap core CSS -->
+<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+		<!--sidebar-->
+		<div id = "wrapper">
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				<div class="d-none d-sm-block">
+						<ul>
+							<li><h3>
+									<a href="#">카테고리</a>
+								</h3></li>
+							<li><a href="#">직 업 정 보</a></li>
+							<li><a href="#">직 무 정 보</a></li>
+							<li><a href="#">산 업 정 보</a></li>
+							<li><a href="#">채 용 정 보</a></li>
+						</ul>
+					</div>
+					</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 이 버튼을 만들어서 붙여주시면 됩니다 -->
+	 <div class="d-none d-sm-block">
+        <a href="#" class="btn btn-success" id="menu-toggle">전체보기</a>
+    </div>
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("menuDisplayed");
+		});
+		$('#mytype li > a').on('click', function() {
+			// 버튼에 선택된 항목 텍스트 넣기 
+			$('#mystatus').text($(this).text());
+
+		});
+	</script>
+
+
+</body>
+
+</html>

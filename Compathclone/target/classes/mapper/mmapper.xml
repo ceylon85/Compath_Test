@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+	<select id="User_view" resultType="com.user.UserEntity">
+		select * from Login_Create
+	</select>
+	
+	<insert id="User_Insert">
+		insert into Login_Create
+		(ID,PW,gender,Email,Email_Accept,birth,Address,Final_Education,Career_Duration)
+		values(#{id},#{pw},#{gender},#{email},#{email_accept},#{birth},#{address},#{final_education},#{career_duration})
+	</insert>
+
+	<delete id="User_Delete">
+		delete from Login_Create where id = #{id}
+	</delete>
+
+	<update id="User_Update">
+		update Login_Create set pw = #{pw} where id = #{id}
+	</update>
+
+	<select id="User_Login" resultType="com.user.UserEntity">
+		select * from Login_Create where id = #{id} and pw = #{pw}
+	</select>
+
+	<select id="User_Search" resultType="com.user.UserEntity">
+		select * from Login_Create where id = #{id} and email = #{email}
+	</select>
+
+	<update id="User_Info_Update">
+		update Login_Create set gender=#{gender}, email=#{email}, email_accept=#{email_accept}, birth=#{birth}, address =#{address},
+		final_education = #{final_education}, career_duration=#{career_duration} where id = #{id} and pw=#{pw}
+	</update>
+	
+	<select id="User_ID_search" resultType="com.user.UserEntity">
+		select * from Login_Create where id = #{id}
+	</select>
+	<select id="User_EMAIL_search" resultType="com.user.UserEntity">
+		select * from Login_Create where email = #{email}
+	</select>
+	<!-- <insert id = "testsample">
+		insert into sample values(#{a},#{b})
+	</insert> -->
+</mapper>

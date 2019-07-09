@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 부트스트랩 -->
+<link href="../../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"
+	type="text/css" />
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<!-- Bootstrap core CSS -->
+<link href="../../vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!--SummerNote-->
+
+<!-- include libraries(jQuery, bootstrap) -->
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<!-- include summernote css/js -->
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+
+<script>
+
+$(document).ready(function() {
+   //뉴스리스트
+   mynewslist();
+   
+   //call summernote
+   $('#summernote').summernote({
+      height : 400,
+      minHeight : null,
+      maxHeight : null,
+      focus : false
+   });
+   
+   //보낸 sbook 객체의 title을 변수에 저장한다
+   var sbooktitle = ${found.title}
+   //보낸 sbook 객체에서 contents에 들어있는 html코드를 변수에 저장한다
+   var sbookhtml = ${found.contents}
+   setText(sbookhtml);
+});
+
+function setText(data){
+   window.alert(sbooktitle+"=title\n"+sbookhtml+"=html");
+   $('#summernote').html(data);
+};
+
+//뉴스리스트 보여줌
+function mynewslist() {
+   $.ajax({
+      type: "GET",
+      url: "<%=root%>/mynews_getall.do?id=${ id }",
+      dataType : "text",
+      error : function() {
+         alert("mynewslist 통신 실패 !!");
+      },
+      success : function(data) {
+         $("#mynewslist").html(data);
+      }
+   });
+}; 
+
+/* 뉴스 디테일, 관심목록에서 삭제 function */
+<%-- function newsDetail(news_number) { //.do 이름 확인
+   var win = window.open("news_detail.do?news_number=" + news_number, '_blank');
+   win.focus();
+}; --%>
+
+function unlikeMyNews(news_number,id){
+   var flag=window.confirm(news_number+"번 뉴스를 "+id+"님의 관심 목록에서 제거합니다");
+   if(flag){
+   $.ajax({
+      type: "GET",
+      url: "<%=root%>
+	/mynews_unlike.do?news_number=" + news_number
+						+ "&id=" + id,
+				dataType : "text",
+				error : function() {
+					alert("제거 실패");
+				},
+				success : function(data) {
+					alert("관심 목록에서 제거되었습니다");
+					$("#mynewslist").html(data);
+				}
+			});
+		}
+	};
+
+	//작성 후 저장버튼 누르면 update 그다음 shareSbook 호출
+	function saveSbook(num) {
+		var flag = confirm("작성한 내용을 저장하시겠습니까?")
+		if (flag) {
+			$.ajax({
+				type : "GET", //기본이 get
+				url : "sbook_share.do?scrapbook_num=" + num,
+				dataType : "text",
+				error : function() {
+					window.alert("에러로 공유할 수 없었습니다");
+				},
+				success : function() {
+					window.alert("성공적으로 저장되었습니다.");
+					shareSbook(num);
+				}
+			});
+		} else {
+
+		}
+
+	}
+
+	//스크랩북 작성 후 공유할 것인지 확인 
+	function shareSbook(num) {
+		var flag = confirm("해당 스크랩북을 공유하시겠습니까?");
+		if (flag) {
+			$.ajax({
+				type : "GET", //기본이 get
+				url : "sbook_share.do?scrapbook_num=" + num,
+				dataType : "text",
+				error : function() {
+					window.alert("에러로 공유할 수 없었습니다");
+				},
+				success : function() {
+					window.alert("성공적으로 공유되었습니다. 스크랩북 게시판으로 이동합니다");
+				}
+			});
+		} else {
+		}
+	}
+</script>
+
+</head>
+
+
+
+<body>
+	<!-- 헤더 들어가는 부분 -->
+	<jsp:include page="../../main/menubar.jsp"></jsp:include>
+
+	<hr />
+	<!-- <div id="wrapper"> -->
+	<!--sidebar-->
+	<jsp:include page="../../main/sidebar.jsp"></jsp:include>
+	<!-- </div> -->
+
+	<!-- /#sidebar-wrapper -->
+	<!-- scrap news Content -->
+
+	<div class="row">
+		<div class="container col-md-4">
+			<div class="container col-md-4">
+				<h1 align="center">나의 관심 뉴스</h1>
+				<div id="mynewslist" class="page-content-wrapper"></div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+
+		<!--스크랩북 editor-->
+		<div class="container col-md-8">
+			<h1 class="separator text-center">Editor</h1>
+
+			<div class="container">
+				<form method="post">
+					<div id="summernote" name="editordata"></div>
+				</form>
+				<div class="text-center">
+					<div onclick="saveSbook('${found.scrapbook_num}')">
+						<button class="btn btn-outline-info btn-light" id="submit">저장</button>
+					</div>
+				</div>
+			</div>
+			<!-- /#wrapper -->
+			<script>
+				$(document).ready(function() {
+					$('#summernote').summernote({
+						height : 400,
+						minHeight : null,
+						maxHeight : null,
+						focus : false
+					});
+				});
+			</script>
+
+			<div class="text-center">
+				<button class="btn btn-outline-info btn-light" id="submit">저장</button>
+				<button class="btn btn-outline-info btn-light" id="share">공유</button>
+			</div>
+
+		</div>
+		<!-- 푸터 들어가는 부분 -->
+		<jsp:include page="../../main/footer.jsp"></jsp:include>
+	</div>
+
+
+	<!-- Modal -->
+
+
+</body>
+
+</html>

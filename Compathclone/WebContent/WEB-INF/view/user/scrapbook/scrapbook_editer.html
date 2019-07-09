@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 부트스트랩 -->
+<link href="../../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"
+	type="text/css" />
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<!-- Bootstrap core CSS -->
+<link href="../../vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!--SummerNote-->
+
+<!-- include libraries(jQuery, bootstrap) -->
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<!-- include summernote css/js -->
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+</head>
+
+
+
+<body>
+	<!-- 헤더 들어가는 부분 -->
+	<jsp:include page="../../main/menubar.jsp"></jsp:include>
+
+	<hr />
+	<div id="wrapper">
+		<!--sidebar-->
+		<jsp:include page="../../main/sidebar.jsp"></jsp:include>
+	</div>
+
+	<!-- /#sidebar-wrapper -->
+	<!-- scrap news Content -->
+
+	<div class="row">
+		<div class="container col-md-4">
+			<h2 class="mt-4">내가 스크랩한 뉴스 카드리스트</h2>
+
+			<c:forEach var="news" items="${requestScope.mynewslist}">
+				<div class="card mb-3">
+					<div class="card-body">
+						<h4>${news.title }
+							<a href="#" style="text-align: right; font-size: small;">자세히
+								보기</a>
+						</h4>
+						<p>contents: ${news.contents }</p>
+					</div>
+
+				</div>
+			</c:forEach>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+
+		<!--스크랩북 editor-->
+		<div class="container col-md-8">
+		<h1 class="separator text-center">Editor</h1>
+
+		<div class="container">
+			<form method="post">
+				<textarea id="summernote" name="editordata"></textarea>
+			</form>
+		</div>
+		<!-- /#wrapper -->
+		<script>
+			$(document).ready(function() {
+				$('#summernote').summernote({
+					height : 400,
+					minHeight : null,
+					maxHeight : null,
+					focus : false
+				});
+			});
+		</script>
+
+		<div class="text-center">
+			<button class="btn btn-outline-info btn-light" id="submit">저장</button>
+			<button class="btn btn-outline-info btn-light" id="share">공유</button>
+		</div>
+
+	</div>
+	<!-- 푸터 들어가는 부분 -->
+	<hr />
+
+	<div class="container">
+		<p class="text-center">
+			<small><strong> com:path</strong></small><br> <small>주소
+				: 대호 프레조빌 ㆍ 사업자등록번호:123-12-12345 ㆍ 전화 : 010-000-0000</small><br> <small>Copyrightⓒ
+				test.com All rights reserved.</small>
+		</p>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<!--왜인지 얘가 있어야 닫기 버튼이 닫힘-->
+		</div>
+		<div class="wrapper fadeInDown" id="myModal">
+			<div id="formContent">
+				<!-- Tabs Titles -->
+
+				<!-- Icon -->
+				<div class="fadeIn first">
+					<img src="../img/com_path.png" id="icon" alt="User Icon" />
+					<h1>로그인 하세요.</h1>
+				</div>
+
+				<!-- Login Form -->
+
+				<form>
+					<input type="text" id="login" class="fadeIn second" name="login"
+						placeholder="username"> <input type="text" id="password"
+						class="fadeIn third" name="login" placeholder="password">
+					<input type="submit" class="fadeIn fourth" value="Log In">
+				</form>
+
+				<!-- Remind Passowrd -->
+				<div id="formFooter">
+					<a class="underlineHover" href="#">Go to the Site</a>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

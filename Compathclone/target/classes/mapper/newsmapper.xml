@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="newsmapper">
+
+	<select id="news_select_all" resultType="com.news.news">
+		select * from news_main
+	</select>
+
+	<!-- 뉴스 내용으로 포함 검색하기 -->
+
+	<select id="news_search_contents" resultType="com.news.news">
+		select * from news_main where contents like '%' ||
+		#{contents} || '%'
+	</select>
+
+	<!-- 뉴스 타이틀로 포함 검색하기 -->
+	<select id="news_search_title" resultType="com.news.news">
+		select * from news_main where title like '%' || #{title} ||
+		'%'
+	</select>
+
+	<!-- 뉴스 작성 신문으로 검색하기 -->
+	<select id="news_search_author" resultType="com.news.news">
+		select * from news_main where author like '%' || #{author}
+		|| '%'
+	</select>
+
+	<!-- 뉴스 컨텐츠와 타이틀에 모두 포함된 검색하기 -->
+	<select id="news_search_contents_title"
+		resultType="com.news.news">
+		select * from news_main where contents like '%' ||
+		#{contents} || '%' or title like '%' || #{title} || '%'
+	</select>
+
+	<!-- 뉴스 번호로 검색하기 -->
+	<select id="news_search_number" resultType="com.news.news">
+		select * from news_main where news_number = #{news_number}
+	</select>
+
+	<!-- 뉴스 카테고리로 검색하기 -->
+	<select id="news_search_category" resultType="com.news.news">
+		select * from news_main where category = #{category}
+	</select>
+
+	<!-- 뉴스 날짜로 검색하기 -->
+	<select id="news_search_after_date" resultType="com.news.news">
+      <![CDATA[
+      select * from news_main where chgTime>#{chgTime}
+      ]]>
+	</select>
+
+	<!-- 뉴스 날짜로 검색하기 -->
+	<select id="news_search_before_date" resultType="com.news.news">
+      <![CDATA[
+      select * from news_main where chgTime<#{chgTime}
+      ]]>
+	</select>
+
+
+	<delete id="news_Delete">
+		delete from news_main where News_Number = #{News_Number}
+	</delete>
+	
+	<update id="mynewslike" parameterType="com.user.UserLike">
+		update User_logData set
+		News_Check=1 where id=#{id} and News_Number=#{news_number}
+	</update>
+
+</mapper>

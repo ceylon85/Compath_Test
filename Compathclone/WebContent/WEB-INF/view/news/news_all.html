@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+
+<title>3뉴스 결과+검색 com:path</title>
+
+<!-- 부트스트랩 -->
+<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet"
+	type="text/css" />
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<!-- Bootstrap core CSS -->
+<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link href="../css/searchmain.css" rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Poppins:700"
+	rel="stylesheet" />
+<link rel="stylesheet" href="../css/donut-chart.css" />
+</head>
+
+<body>
+	<!-- 헤더 들어가는 부분 -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
+			<!-- 컨테이너를 설정하지 않으면 메뉴바가 펼쳐지고 난리난리 납니당 컨테이너 설정 = 1170px 안으로 담겠다 -->
+			<a class="navbar-brand" href="http://playdata.io"
+				class="navbar-brand"> <img src="img/com_path.png" alt="com:path"
+				size="150px">
+			</a>
+			<button class="navbar-toggler d-lg-none" type="button"
+				data-toggle="collapse" data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- justify-content-end 는 컨테이너 끝쪽으로 몰아넣도록 함-->
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarsExampleDefault">
+				<ul class="col-8 navbar-nav mr-auto">
+
+					<ul class="col-8 navbar-nav mr-auto">
+
+						<li class="nav-item active"><a class="nav-link" href="#"
+							class="nav-link">트렌드</a></li>
+						<li class="nav-item active"><a class="nav-link" href="#">기업정보</a>
+						</li>
+						<li class="nav-item active"><a class="nav-link" href="#">채용정보</a>
+						</li>
+						<li class="nav-item active"><a class="nav-link" href="#">스크랩북</a>
+						</li>
+						<li class="nav-item active"><a class="nav-link" href="#">마이페이지</a>
+						</li>
+					</ul>
+				</ul>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link"
+						data-toggle="collapse" title="검색이 필요하신가요?" href="#colsearch"
+						aria-expanded="false" aria-controls="colsearch"> 상세검색 </a></li>
+					<form class="form-inline">
+						<input class="form-control mr-sm-2" title="검색어 입력" type="search"
+							placeholder="찾기" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+							onclick="location.href=''">Search</button>
+					</form>
+				</ul>
+			</div>
+			<!-- modal 구동 버튼 (trigger) -->
+			<button type="button" class="btn btn-primary" data-toggle="modal"
+				data-target="#myModal">Log-in</button>
+		</nav>
+	</header>
+	<hr />
+	<div class="s011" id="colsearch">
+		<form>
+			<fieldset>
+				<legend>어떤 정보를 찾고 계세요?</legend>
+			</fieldset>
+			<div class="inner-form">
+				<header>
+					<div class="travel-type-wrap">
+						<div class="item active">
+							<span>키워드검색</span>
+						</div>
+						<div class="item">
+							<span>기업정보검색</span>
+						</div>
+						<div class="item">
+							<span>채용정보검색</span>
+						</div>
+					</div>
+				</header>
+				<div class="main-form" id="main-form">
+					<div class="roww">
+						<div class="input-wrap">
+							<div class="input-field">
+								<label>검색어</label> <input type="text"
+									placeholder="검색하고 싶은 키워드를 입력하세요" />
+							</div>
+						</div>
+					</div>
+					<div class="roww second">
+						<div class="input-wrap">
+							<div class="input-field">
+								<label>시작날짜</label> <input class="datepicker" type="text"
+									placeholder="mm/dd/yy" />
+							</div>
+						</div>
+						<div class="input-wrap">
+							<div class="input-field">
+								<label>종료날짜</label> <input class="datepicker" type="text"
+									placeholder="mm/dd/yy" />
+							</div>
+						</div>
+					</div>
+					<div class="roww second">
+						<div class="input-wrap">
+							<div class="input-field">
+								<label>포함할 검색어</label> <input type="text" />
+							</div>
+						</div>
+						<div class="input-wrap">
+							<div class="input-field">
+								<label>제외할 검색어</label> <input type="text" />
+							</div>
+						</div>
+					</div>
+					<!--<div class="row third">
+                  <div class="input-checkbox-group">
+                    <div class="input-checkbox">
+                      <input id="yes" type="checkbox" name="customer" value="yes" checked="checked" />
+                      <label for="yes">ADD A FLIGHT</label>
+                    </div>
+                    <div class="input-checkbox">
+                      <input id="no" type="checkbox" name="customer" value="no" />
+                      <label for="no">ADD A CAR</label>
+                    </div>
+                  </div>
+                </div>-->
+
+					<div class="roww justify-content-center">
+						<button class="col btn-search" type="button">검 색</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="../js/extention/choices.js"></script>
+	<script>
+		const choices = new Choices('[data-trigger]', {
+			searchEnabled : false,
+			itemSelectText : '',
+		});
+	</script>
+	<script src="../js/extention/flatpickr.js"></script>
+	<script>
+		flatpickr(".datepicker", {
+			dateFormat : "m/d/y"
+		});
+		var btnTypes = document.querySelectorAll('.travel-type-wrap .item')
+		var mainForm = document.getElementById('main-form')
+		for (let i = 0; i < btnTypes.length; i++) {
+			btnTypes[i].addEventListener('click', function() {
+				for (let i = 0; i < btnTypes.length; i++) {
+					btnTypes[i].classList.remove('active')
+				}
+				btnTypes[i].classList.add('active')
+				let className = 'type' + i
+				mainForm.className = `${className} main-form`
+			})
+		}
+	</script>
+	<!-- 메인컨텐츠 -->
+	<div class="container" id="newsContainer">
+		<div id="content">
+			<div class="contentBoxArea">
+
+				<div class="contentBox">
+
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h4>뉴스 보기</h4>
+								<p>최신 뉴스를 확인하세요</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-9">
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<div class="card bg-warning">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-4">
+														<img
+															src="http://www.3forty.media/cannix/wp-content/uploads/2018/03/clem-onojeghuo-127166-unsplash-1-500x333.jpg ">
+													</div>
+													<div class="col-md-8">
+														<div class="news-title">
+															<h5><a href="#">
+																뉴스 타이틀이 들어가고 본문으로 넘어감
+															</a></h5>
+														</div>
+														<div class="news-cats">
+															<ul class="list-unstyled list-inline mb-1">
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>주제</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>기자
+																			이름</small> </a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>뉴스
+																			생성일</small></a></li>
+
+
+
+
+															</ul>
+														</div>
+														<div class="news-content">
+															<p>뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스
+																내요요요요요요용</p>
+														</div>
+														<div class="news-buttons">
+															<a href="#">
+																<button type="button"
+																	class="btn btn-outline-danger btn-sm">본문 보기</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-4">
+														<img
+															src="http://www.3forty.media/cannix/wp-content/uploads/2018/03/clem-onojeghuo-127166-unsplash-1-500x333.jpg ">
+													</div>
+													<div class="col-md-8">
+														<div class="news-title">
+															<h5><a href="#">
+																뉴스 타이틀이 들어가고 본문으로 넘어감
+															</a></h5>
+														</div>
+														<div class="news-cats">
+															<ul class="list-unstyled list-inline mb-1">
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>주제</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>기자
+																			이름</small> </a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>뉴스
+																			생성일</small></a></li>
+
+
+
+
+															</ul>
+														</div>
+														<div class="news-content">
+															<p>뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스
+																내요요요요요요용</p>
+														</div>
+														<div class="news-buttons">
+															<a href="#">
+																<button type="button"
+																	class="btn btn-outline-danger btn-sm">본문 보기</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-4">
+														<img
+															src="http://www.3forty.media/cannix/wp-content/uploads/2018/03/clem-onojeghuo-127166-unsplash-1-500x333.jpg ">
+													</div>
+													<div class="col-md-8">
+														<div class="news-title">
+															<h5><a href="#">
+																뉴스 타이틀이 들어가고 본문으로 넘어감
+															</a></h5>
+														</div>
+														<div class="news-cats">
+															<ul class="list-unstyled list-inline mb-1">
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>주제</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>기자
+																			이름</small> </a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>뉴스
+																			생성일</small></a></li>
+
+
+
+
+															</ul>
+														</div>
+														<div class="news-content">
+															<p>뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스
+																내요요요요요요용</p>
+														</div>
+														<div class="news-buttons">
+															<a href="#">
+																<button type="button"
+																	class="btn btn-outline-danger btn-sm">본문 보기</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-4">
+														<img
+															src="http://www.3forty.media/cannix/wp-content/uploads/2018/03/clem-onojeghuo-127166-unsplash-1-500x333.jpg ">
+													</div>
+													<div class="col-md-8">
+														<div class="news-title">
+															<h5><a href="#">
+																뉴스 타이틀이 들어가고 본문으로 넘어감
+															</a></h5>
+														</div>
+														<div class="news-cats">
+															<ul class="list-unstyled list-inline mb-1">
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>주제</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>기자
+																			이름</small> </a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>뉴스
+																			생성일</small></a></li>
+
+
+
+
+															</ul>
+														</div>
+														<div class="news-content">
+															<p>뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스
+																내요요요요요요용</p>
+														</div>
+														<div class="news-buttons">
+															<a href="#">
+																<button type="button"
+																	class="btn btn-outline-danger btn-sm">본문 보기</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-4">
+														<img
+															src="http://www.3forty.media/cannix/wp-content/uploads/2018/03/clem-onojeghuo-127166-unsplash-1-500x333.jpg ">
+													</div>
+													<div class="col-md-8">
+														<div class="news-title">
+															<h5><a href="#">
+																뉴스 타이틀이 들어가고 본문으로 넘어감
+															</a></h5>
+														</div>
+														<div class="news-cats">
+															<ul class="list-unstyled list-inline mb-1">
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>주제</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>기자
+																			이름</small> </a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>뉴스
+																			생성일</small></a></li>
+
+
+
+
+															</ul>
+														</div>
+														<div class="news-content">
+															<p>뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스 내요요요요요요용뉴스
+																내요요요요요요용</p>
+														</div>
+														<div class="news-buttons">
+															<a href="#">
+																<button type="button"
+																	class="btn btn-outline-danger btn-sm">본문 보기</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-4">
+														<img
+															src="http://www.3forty.media/cannix/wp-content/uploads/2018/03/clem-onojeghuo-127166-unsplash-1-500x333.jpg ">
+													</div>
+													<div class="col-md-8">
+														<div class="news-title">
+															<h5><a href="#">
+																뉴스 타이틀이 들어가고 본문으로 넘어감
+															</a></h5>
+														</div>
+														<div class="news-cats">
+															<ul class="list-unstyled list-inline mb-1">
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>Advertisment</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>Author</small>
+																</a></li>
+																<li class="list-inline-item"><i
+																	class="fa fa-folder-o text-danger"></i> <a href="#"><small>4th
+																			July 2018</small></a></li>
+
+
+
+
+															</ul>
+														</div>
+														<div class="news-content">
+															<p>Particular unaffected projection sentiments no my.
+																Music marry as at cause party worth weeks. S...</p>
+														</div>
+														<div class="news-buttons">
+															<button type="button"
+																class="btn btn-outline-danger btn-sm">Read More</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<nav aria-label="Page navigation example">
+											<ul class="pagination justify-content-center">
+												<li class="page-item"><a class="page-link" href="#"
+													aria-label="Previous"> <span aria-hidden="true">«</span>
+														<span class="sr-only">Previous</span>
+												</a></li>
+												<li class="page-item"><a class="page-link" href="#">1</a></li>
+												<li class="page-item"><a class="page-link" href="#">2</a></li>
+												<li class="page-item"><a class="page-link" href="#">3</a></li>
+												<li class="page-item"><a class="page-link" href="#">4</a></li>
+												<li class="page-item"><a class="page-link" href="#">5</a></li>
+												<li class="page-item"><a class="page-link" href="#"
+													aria-label="Next"> <span aria-hidden="true">»</span> <span
+														class="sr-only">Next</span>
+												</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row mb-2">
+									<div class="col-md-12">
+										<h3>All keyword</h3>
+										<div id="chartdiv"></div>
+										<script src="../js/core.js"></script>
+										<script src="../js/charts.js"></script>
+										<script src="../themes/animated.js"></script>
+										<script src="../js/donut-chart.js"></script>
+										<div class="card">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="card">
+														<div class="card-body">
+															<h5>조회수 높은 기사 리스트 가지고 올까?</h5>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="list-group">
+												<a href="#"
+													class="list-group-item list-group-item-action active">First
+													item</a> <a href="#"
+													class="list-group-item list-group-item-action">Second
+													item</a> <a href="#"
+													class="list-group-item list-group-item-action">Third
+													item</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="card">
+											<div class="card-body">
+												<img
+													src="http://www.3forty.media/cannix/wp-content/uploads/2018/04/clem-onojeghuo-228522-unsplash-1-768x1153.jpg">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+				<!-- mainContent -->
+				<!-- contentBox -->
+			</div>
+			<!--container-->
+		</div>
+		<!-- contentBoxArea -->
+
+	</div>
+	<!-- 메인컨텐츠 -->
+	<hr />
+	<!-- 푸터 들어가는 부분 -->
+	<div class="container">
+		<p class="text-center">
+			<small><strong> com:path</strong></small><br> <small>주소
+				: 대호 프레조빌 ㆍ 사업자등록번호:123-12-12345 ㆍ 전화 : 010-000-0000</small><br> <small>Copyrightⓒ
+				test.com All rights reserved.</small>
+		</p>
+	</div>
+	<!--// 푸터 들어가는 부분 -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<!--왜인지 얘가 있어야 닫기 버튼이 닫힘-->
+		</div>
+		<div class="wrapper fadeInDown" id="myModal">
+			<div id="formContent">
+				<!-- Tabs Titles -->
+
+				<!-- Icon -->
+				<div class="fadeIn first">
+					<img src="C:\Bootstrap\compath\img\com_path.png" id="icon"
+						alt="User Icon" />
+					<h1>로그인 하세요.</h1>
+				</div>
+
+				<!-- Login Form -->
+
+				<form>
+					<input type="text" id="login" class="fadeIn second" name="login"
+						placeholder="username"> <input type="text" id="password"
+						class="fadeIn third" name="login" placeholder="password">
+					<input type="submit" class="fadeIn fourth" value="Log In">
+				</form>
+
+				<!-- Remind Passowrd -->
+				<div id="formFooter">
+					<a class="underlineHover" href="#">회원가입</a>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+
+
+
+</html>

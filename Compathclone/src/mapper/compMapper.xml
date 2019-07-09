@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="compMapper">
+
+   <!-- comp_all.jsp -->
+   <select resultType="com.comp.CompanyEntity" id="complist">
+      select
+      w.*,r.regLogImgNm
+      from DARTDETAIL w, RECRUITdetail r
+      where
+      w.crp_nm_i=r.empbusinm and r.empbusinm=#{empbusinm};
+   </select>
+   
+   
+   <!-- 재무제표 -->
+   <select resultType="com.comp.CompanyEntity" id="finstate">
+   
+   </select>
+
+   <select resultType="com.comp.CompanyEntity" id="compall">
+      select * from DARTDETAIL
+   </select>
+   
+   
+   <select resultType="com.comp.CompanyEntity" id="compinfo">
+      select d.*,e.rcp_no from
+      DARTDETAIL d, DARTsearch e
+      where d.crp_nm_i= #{crp_nm_i} and d.crp_nm_i=e.crp_nm
+   </select>
+
+   <!-- comp_detail.jsp -->
+   <select id="comprecruit"
+      resultType="com.comp.recruit.RecruitEntity">
+      select * from RECRUITDETAIL where empBusiNm = #{empBusiNm}
+
+   </select>
+
+   <update id="mycomplike" parameterType="com.user.UserLike">
+      update User_logData set
+      Company_Check=1 where id=#{id} and Company_Number=#{comp_number}
+   </update>
+
+</mapper>
