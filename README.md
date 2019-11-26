@@ -9,8 +9,8 @@
 
 
 # 방향 설정
-1)기업 정보내용 중복으로 다양한 정보를 얻기가 어려움
-2)관심 산업분야가 있지만, 어떤 기업부터 찾아야 될지 모르겠음
+1) 기업 정보내용 중복으로 다양한 정보를 얻기가 어려움
+2) 관심 산업분야가 있지만, 어떤 기업부터 찾아야 될지 모르겠음
 => 기업 정보에 특화된 취업 정보 플랫폼이 필요
 
 
@@ -40,13 +40,13 @@
 
 
 # 사용 Tools
-Monitoring Tool : Colasoft
-IDE : Eclipse, VScode
-Dev Language : Java, Python, R
-Web Framework : Spring, Maven
-Was : Tomcat
-Fronted design tool : HTML5, Jquery, Bootstrap
-Libraries : Pymongo, Spark Streming, Pyspark, My Batis, BeautifulSoup, KoNLPy
-OS : CentOS
-Hadoop Ecosystem : Apache Spark, Apache Flume, Apache Zeppelin
-Data Storage : Hadoop, ORACLE, mongoDB
+-Monitoring Tool : Colasoft
+-IDE : Eclipse, VScode
+-Dev Language : Java, Python, R
+-Web Framework : Spring, Maven
+-Was : Tomcat
+-Fronted design tool : HTML5, Jquery, Bootstrap
+-Libraries : Pymongo, Spark Streming, Pyspark, My Batis, BeautifulSoup, KoNLPy
+-OS : CentOS
+-Hadoop Ecosystem : Apache Spark, Apache Flume, Apache Zeppelin
+-Data Storage : Hadoop, ORACLE, mongoDB
