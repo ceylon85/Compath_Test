@@ -40,13 +40,13 @@
 
 
 # 사용 Tools
--Monitoring Tool : Colasoft
--IDE : Eclipse, VScode
--Dev Language : Java, Python, R
--Web Framework : Spring, Maven
--Was : Tomcat
--Fronted design tool : HTML5, Jquery, Bootstrap
--Libraries : Pymongo, Spark Streming, Pyspark, My Batis, BeautifulSoup, KoNLPy
--OS : CentOS
--Hadoop Ecosystem : Apache Spark, Apache Flume, Apache Zeppelin
--Data Storage : Hadoop, ORACLE, mongoDB
+-Monitoring Tool : Colasoft  
+-IDE : Eclipse, VScode  
+-Dev Language : Java, Python, R  
+-Web Framework : Spring, Maven  
+-Was : Tomcat  
+-Fronted design tool : HTML5, Jquery, Bootstrap  
+-Libraries : Pymongo, Spark Streming, Pyspark, My Batis, BeautifulSoup, KoNLPy  
+-OS : CentOS  
+-Hadoop Ecosystem : Apache Spark, Apache Flume, Apache Zeppelin  
+-Data Storage : Hadoop, ORACLE, mongoDB  
