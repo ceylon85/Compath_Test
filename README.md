@@ -1,5 +1,6 @@
 # Compath
 성공적인 취업을 위한, 뉴스 빅데이터 기반 기업 정보 플랫폼
+Company + Path => Compath
 
 
 
